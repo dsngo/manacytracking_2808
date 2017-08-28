@@ -1,0 +1,15 @@
+<app-view>
+    <app-view-back-to></app-view-back-to>
+
+    <app-view-headline>わーくしーと名</app-view-headline>
+
+    <app-view-content>
+        <md-nav-bar md-selected-nav-item="$ctrl.page">
+            <md-nav-item md-nav-sref=".properties" name="settings">設定</md-nav-item>
+            <md-nav-item md-nav-sref=".editor" name="editor">編集</md-nav-item>
+            <md-nav-item md-nav-sref=".preview" name="preview">プレビュー</md-nav-item>
+        </md-nav-bar>
+
+        <ui-view></ui-view>
+    </app-view-content>
+</app-view>

@@ -1,0 +1,9 @@
+<div layout="row" layout-align="start start" class="height100">
+	<md-content class="height100" flex="none">
+		<app-ws-users-nav user-groups="$ctrl.userGroups" selected-user-id="$ctrl.selectedUserId" on-click="$ctrl.onUserClick(userId)"
+		 flex="none"></app-ws-users-nav>
+	</md-content>
+	<md-content class="height100" flex="grow">
+		<app-ws-owner-view owner-user-id="$ctrl.selectedUserId"></app-ws-owner-view>
+	</md-content>
+</div>

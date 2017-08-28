@@ -1,0 +1,15 @@
+<app-header title="$ctrl.wsAssignmentService.ws.title" back-to="'auth.wslist'" flex="none">
+    <md-button aria-label="Worksheet" ui-sref=".myws" ng-class="$ctrl.$mdMedia('gt-sm') ? '' : 'md-icon-button'">
+        <span class="md-caption" hide show-gt-sm>自分のん</span>
+        <md-tooltip md-direction="bottom">自分のワークシート</md-tooltip>
+        <md-icon md-menu-origin>view_list</md-icon>
+    </md-button>
+    <md-button aria-label="Students" ui-sref=".peerws" ng-class="$ctrl.$mdMedia('gt-sm') ? '' : 'md-icon-button'">
+        <span class="md-caption" hide show-gt-sm>みんなのん</span>
+        <md-tooltip md-direction="bottom">みんなのワークシート</md-tooltip>
+        <md-icon md-menu-origin>people</md-icon>
+    </md-button>
+</app-header>
+<md-content flex="100" class="height100">
+    <ui-view></ui-view>
+</md-content>

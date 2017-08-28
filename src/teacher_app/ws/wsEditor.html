@@ -1,0 +1,25 @@
+<md-tabs md-border-bottom class="height100">
+    <md-tab label="編集">
+        <div layout="row" class="height100">
+            <md-content flex="100" class="height100" layout="column">
+                <app-ws-editor-view></app-ws-editor-view>
+            </md-content>
+            <md-sidenav flex="none" class="md-sidenav-right" md-component-id="settings" md-is-locked-open="$mdMedia('gt-sm')" md-disable-backdrop
+                md-whiteframe="4">
+                <app-ws-element-settings></app-ws-element-settings>
+            </md-sidenav>
+        </div>
+    </md-tab>
+    <md-tab label="プレビュー（生徒本人）">
+        <app-ws-owner-view owner-user-id="$ctrl.dummyStudentOwner.id" current-user="$ctrl.dummyStudentOwner" edit-mode="true"></app-ws-owner-view>
+    </md-tab>
+    <md-tab label="プレビュー（生徒＞同じグループの生徒）">
+        <app-ws-owner-view owner-user-id="$ctrl.dummyStudentSameGroup.id" current-user="$ctrl.dummyStudentOwner" edit-mode="true"></app-ws-owner-view>
+    </md-tab>
+    <!--<md-tab label="プレビュー（生徒＞同じグループ以外の生徒）">
+        <app-ws-owner-view owner-user-id="$ctrl.dummyStudentSameCourse.id" current-user="$ctrl.dummyStudentOwner"></app-ws-owner-view>
+    </md-tab>-->
+    <md-tab label="設定">
+        <app-ws-settings></app-ws-settings>
+    </md-tab>
+</md-tabs>

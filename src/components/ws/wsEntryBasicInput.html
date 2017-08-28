@@ -1,0 +1,92 @@
+<div ng-if="$ctrl.isVisible">
+    <!--<div layout="row" class="padding">
+        <app-avatar user-id="$ctrl.currentUser.id" ng-if="!$ctrl.hideHeader"></app-avatar>
+        <div flex="grow">
+            <div layout="row" layout-align="space-between stretch">
+                <p class="md-caption username" ng-if="!$ctrl.hideHeader">
+                    <span md-colors="{color: 'primary'}">{{$ctrl.currentUser.displayName}}</span>&nbsp;
+                </p>
+            </div>
+        </div>
+    </div>-->
+    <app-ws-entry-media params="$ctrl.params" entries="$ctrl.entries" ng-if="$ctrl.hasMedia"></app-ws-entry-media>
+    
+    <div layout="row" layout-align="space-around center">
+        <md-button ng-if="$ctrl.content.entrySettings.freeHand" ng-class="{'md-raised': $ctrl.isTextEmpty()}" md-ink-ripple="true" ng-click="$ctrl.openDrawing($event)">        
+            <label>
+                <ng-include src="'../images/icons/brush.svg'"></ng-include>
+            </label>
+        </md-button>
+        
+        <md-button ng-if="$ctrl.content.entrySettings.image" ng-class="{'md-raised': $ctrl.isTextEmpty()}" md-ink-ripple="true">
+            <label>
+                <ng-include src="'../images/icons/photo_camera.svg'"></ng-include>
+                <input type="file" class="hide" ngf-select="$ctrl.onPictureUploadClick($files)" accept="image/*"
+                    ngf-capture="camera" ngf-multiple="true" ngf-fix-orientation="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-button>
+        
+        <md-button ng-if="$ctrl.content.entrySettings.video" ng-class="{'md-raised': $ctrl.isTextEmpty()}" md-ink-ripple="true">
+            <label>
+                <ng-include src="'../images/icons/movie.svg'"></ng-include>
+                <input type="file" class="hide" ngf-select="$ctrl.onVideoUploadClick($files)" accept="video/*"
+                    ngf-capture="camcorder" ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-button>
+
+        <md-button ng-if="$ctrl.content.entrySettings.audio" ng-class="{'md-raised': $ctrl.isTextEmpty()}" md-ink-ripple="true">
+            <label>
+                <ng-include src="'../images/icons/keyboard_voice.svg'"></ng-include>
+                <input type="file" class="hide" ngf-select="$ctrl.onAudioUploadClick($files)" accept="audio/*"
+                    ngf-capture="microphone" ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-button>
+
+        <md-button ng-if="$ctrl.content.entrySettings.file" ng-class="{'md-raised': $ctrl.isTextEmpty()}" md-ink-ripple="true">
+            <label>
+                <ng-include src="'../images/icons/attach_file.svg'"></ng-include>
+                <input type="file" class="hide" ngf-select="$ctrl.onVideoUploadClick($files)" accept="video/*"
+                    ngf-capture="camcorder" ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-button>
+
+
+
+
+        <!-- <md-button aria-label="More" ng-click="$ctrl.openDrawing($event)" ng-if="$ctrl.content.entrySettings.freeHand">
+            <md-icon>brush</md-icon>
+        </md-button>
+        <md-icon class="file-button" ng-if="$ctrl.content.entrySettings.image">photo_camera
+            <label for="wsEBI_image{{::$ctrl.$scope.$id}}" class="md-button" md-ink-ripple="true">
+            <input type="file" id="wsEBI_image{{::$ctrl.$scope.$id}}" class="hide" ngf-select="$ctrl.onPictureUploadClick($files)" accept="image/*" ngf-capture="camera"
+                ngf-multiple="true" ngf-fix-orientation="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-icon>
+        <md-icon class="file-button" ng-if="$ctrl.content.entrySettings.video">movie
+            <label for="wsEBI_video{{::$ctrl.$scope.$id}}" class="md-button" md-ink-ripple="true">
+            <input type="file" id="wsEBI_video{{::$ctrl.$scope.$id}}" class="hide" ngf-select="$ctrl.onVideoUploadClick($files)" accept="video/*" ngf-capture="camcorder"
+                ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-icon>
+        <md-icon class="file-button" ng-if="$ctrl.content.entrySettings.audio">keyboard_voice
+            <label for="wsEBI_audio{{::$ctrl.$scope.$id}}" class="md-button" md-ink-ripple="true">
+                <input type="file" id="wsEBI_audio{{::$ctrl.$scope.$id}}" class="hide" ngf-select="$ctrl.onAudioUploadClick($files)" accept="audio/*" ngf-capture="microphone"
+                    ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-icon>
+        <md-icon class="file-button" ng-if="$ctrl.content.entrySettings.file">attach_file
+            <label for="wsEBI_file{{::$ctrl.$scope.$id}}" class="md-button" md-ink-ripple="true">
+                <input type="file" id="wsEBI_file{{::$ctrl.$scope.$id}}" class="hide" ngf-select="$ctrl.onFileUploadClick($files)" accept=""
+                    ngf-multiple="true" ng-disabled="$ctrl.editMode">
+            </label>
+        </md-icon> -->
+    </div>
+    <div class="padding-left">
+        <md-input-container class="md-block nobottommargin" ng-if="$ctrl.content.entrySettings.text">
+            <label>{{$ctrl.content.entrySettings.text.label || "記入欄"}}</label>
+            <textarea name="text" ng-model="$ctrl.textEntry" ngRequired="true" md-maxlength="$ctrl.content.entrySettings.text.maxLength"
+                md-select-on-focus md-resize-textarea ng-attr-rows="{{$ctrl.content.entrySettings.text.rows || 3}}" ng-disabled="$ctrl.editMode"
+                ng-if="$ctrl.refreshTextarea" ng-change="$ctrl.validate()"></textarea>
+        </md-input-container>
+    </div>
+</div>
