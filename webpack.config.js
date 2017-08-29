@@ -51,7 +51,7 @@ const config = {
         ],
     },
     // @daniel: in order to ignore all (except lodash, rxjs, md-color-picker) modules in node_modules folder
-    externals: [nodeExternals({ importType: "var", whitelist: [/^lodash/, /^rxjs/, /^md-color-picker/] })],
+    externals: [nodeExternals({ importType: "var", whitelist: [/^lodash/, /^rxjs/,/*  /^md-color-picker/ */] })],
     plugins: [
         new CopyWebpackPlugin([{ context: "./src", from: "**/*.html", to: "./app" }], { copyUnmodified: false }),
         // @daniel: omitted postcss-loader because it is unnecessary when combining with sass-loader, and is inferior to OptimizeCssAssetsPlugin

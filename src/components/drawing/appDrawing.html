@@ -18,7 +18,7 @@
   <path stroke-linecap="round" ng-attr-d="{{path.points}}" fill="none" ng-attr-stroke="{{path.stroke}}" ng-attr-stroke-width="{{path.strokeWidth}}" ng-if="!path.isText"></path>
 
     <text ng-attr-x="{{path.textPoint.x}}" ng-attr-y="{{path.textPoint.y}}" ng-attr-fill="{{path.stroke}}" ng-attr-font-size="{{path.fontSize}}" ng-if="path.isText" ng-attr-stroke="{{path.textBold}}" stroke-width="1px">
-      <tspan ng-attr-x="{{path.textPoint.x}}" ng-attr-y="{{path.textPoint.y + $index*path.fontSize}}" ng-repeat="textVel in path.textValue track by $index">{{textVel}}</tspan>
+      <tspan ng-attr-text-id="{{path.textId}}" ng-attr-x="{{path.textPoint.x}}" ng-attr-y="{{path.textPoint.y + $index*path.fontSize}}" ng-repeat="textVel in path.textValue track by $index">{{textVel}}</tspan>
     </text>
   </g>
 
